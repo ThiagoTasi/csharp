@@ -48,13 +48,45 @@ namespace csharp
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            lstLista.Items.Clear();
+            dgvLista.Rows.Clear();
             Aluno aluno = new Aluno(0);
             var lista = aluno.ListarAlunos();
-            foreach (var item in lista)
-            {
-                lstLista.Items.Add(item.Nome + " - " +item.Email + " - " +item.Telefone);
-            }
+            lista.ForEach(a =>{
+                dgvLista.Rows.Add();
+                dgvLista.Rows[lista.IndexOf(a)].Cells[clnId.Index].Value = a.Id;
+                dgvLista.Rows[lista.IndexOf(a)].Cells[clnNome.Index].Value = a.Nome;
+                dgvLista.Rows[lista.IndexOf(a)].Cells[clnEmail.Index].Value = a.Email;
+                dgvLista.Rows[lista.IndexOf(a)].Cells[clnTelefone.Index].Value = a.Telefone;
+                dgvLista.Rows[lista.IndexOf(a)].Cells[clnAtivo.Index].Value = a.Ativo;
+            });
+                
+            
+        }
+
+        private void dgvLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_Enter(object sender, EventArgs e)
+        {
+            numericUpDown1.Maximum = (decimal)Aluno.ObterQuantidadedeRegistros();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            dgvLista.Rows.Clear();
+            Aluno aluno = new Aluno(0);
+            var lista = aluno.ListarAlunos(0,(int)numericUpDown1.Value);
+            lista.ForEach(a => {
+                dgvLista.Rows.Add();
+                dgvLista.Rows[lista.IndexOf(a)].Cells[clnId.Index].Value = a.Id;
+                dgvLista.Rows[lista.IndexOf(a)].Cells[clnNome.Index].Value = a.Nome;
+                dgvLista.Rows[lista.IndexOf(a)].Cells[clnEmail.Index].Value = a.Email;
+                dgvLista.Rows[lista.IndexOf(a)].Cells[clnTelefone.Index].Value = a.Telefone;
+                dgvLista.Rows[lista.IndexOf(a)].Cells[clnAtivo.Index].Value = a.Ativo;
+            });
         }
     }
 }
+    
