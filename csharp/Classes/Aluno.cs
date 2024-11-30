@@ -29,10 +29,10 @@ namespace csharp.Classes
             var cmd = Banco.Abrir();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = "Insert alunos values(null, '"+Nome+"','"+Email+"','"+Telefone+"',md5('"+Senha+"'),1)";
-            cmd.ExecuteNonQuery();
+            Id=cmd.ExecuteNonQuery();
             cmd.CommandText = "select @@identify";
-            Id = Convert.ToInt32(cmd.ExecuteScalar());
-            
+            //Id = Convert.ToInt32(cmd.ExecuteScalar());
+
         }
         public List<Aluno> ListarAlunos()
         {
