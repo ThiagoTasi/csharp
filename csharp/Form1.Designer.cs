@@ -107,8 +107,10 @@
             // 
             this.txtId.Location = new System.Drawing.Point(62, 32);
             this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(60, 22);
             this.txtId.TabIndex = 6;
+            this.txtId.UseSystemPasswordChar = true;
             // 
             // txtNome
             // 
@@ -175,6 +177,7 @@
             this.btnInserir.TabIndex = 14;
             this.btnInserir.Text = "Inserir";
             this.btnInserir.UseVisualStyleBackColor = true;
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // btnAlterar
             // 
