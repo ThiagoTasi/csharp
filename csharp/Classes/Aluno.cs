@@ -34,6 +34,28 @@ namespace csharp.Classes
             Id = Convert.ToInt32(cmd.ExecuteScalar());
             
         }
+        public List<Aluno> ListarAlunos()
+        {
+            List<Aluno> lista = new List<Aluno>();
+            var cmd = Banco.Abrir();
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = "select * from alunos";
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lista.Add(new Aluno(
+                    Convert.ToInt32(dr.GetValue(0)),
+                    dr.GetString(1),
+                    dr.GetString(2),
+                    dr.GetString(3),
+                    dr.GetString(4),
+                    dr.GetBoolean(5)
+                    ));
+            }
+
+
+            return lista;
+        }
     }
 }
 

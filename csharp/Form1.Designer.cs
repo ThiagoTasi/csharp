@@ -46,6 +46,7 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnListar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lstLista = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -152,6 +153,7 @@
             // chkAtivo
             // 
             this.chkAtivo.AutoSize = true;
+            this.chkAtivo.Enabled = false;
             this.chkAtivo.Location = new System.Drawing.Point(363, 31);
             this.chkAtivo.Name = "chkAtivo";
             this.chkAtivo.Size = new System.Drawing.Size(59, 20);
@@ -196,6 +198,7 @@
             this.btnListar.TabIndex = 16;
             this.btnListar.Text = "Listar";
             this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // dataGridView1
             // 
@@ -207,11 +210,22 @@
             this.dataGridView1.Size = new System.Drawing.Size(297, 206);
             this.dataGridView1.TabIndex = 17;
             // 
+            // lstLista
+            // 
+            this.lstLista.FormattingEnabled = true;
+            this.lstLista.ItemHeight = 16;
+            this.lstLista.Location = new System.Drawing.Point(466, 282);
+            this.lstLista.Name = "lstLista";
+            this.lstLista.Size = new System.Drawing.Size(297, 164);
+            this.lstLista.TabIndex = 18;
+            this.lstLista.SelectedIndexChanged += new System.EventHandler(this.lstLista_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lstLista);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.btnAlterar);
@@ -232,6 +246,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Cadastro Aluno";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -258,6 +273,7 @@
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ListBox lstLista;
     }
 }
 
